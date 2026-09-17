@@ -1,0 +1,80 @@
+{
+  "positive_words": [
+    "Docker",
+    "GitHub",
+    "Google",
+    "Göteborg",
+    "Kubernetes",
+    "LibreOffice",
+    "Microsoft",
+    "MySQL",
+    "PostgreSQL",
+    "Stockholm",
+    "Ubuntu",
+    "adressbehörighetsinställningar",
+    "användarinställningar",
+    "api-nyckel",
+    "applikationsserver",
+    "databashantering",
+    "datalager",
+    "diskussionsgrupp",
+    "fallucka",
+    "filnamnsändelse",
+    "filsystemsmetadata",
+    "funktionalitet",
+    "gränssnittskomponent",
+    "informationsteknik",
+    "katt",
+    "katten",
+    "katter",
+    "katterna",
+    "katternas",
+    "programspråk",
+    "serverautentiseringstyp",
+    "spionprogram",
+    "sprang",
+    "springa",
+    "springer",
+    "sprungit",
+    "systemd",
+    "webbapplikation"
+  ],
+  "negative_words": [
+    "bilbil",
+    "datordator",
+    "falllucka",
+    "smörgåss",
+    "stavvningskontroll",
+    "säkerhett",
+    "zzqxxzz",
+    "översätning"
+  ],
+  "checks": {
+    "hunspell": {
+      "correct_words_rejected": [],
+      "misspellings_accepted": [],
+      "stderr": ""
+    },
+    "aspell": {
+      "correct_words_rejected": [],
+      "misspellings_accepted": [],
+      "stderr": ""
+    }
+  },
+  "compiled_forms_verified": 943330,
+  "affix_rule_counts": "both affix files match their headers",
+  "sha256": {
+    "merged.txt": "8fd8c246ae37a16bc10a22e6128f87a68440b6c653a70b7fc6f8eac747c0c6d0",
+    "sv.rws": "c4d52d8e45e9cb887d27b372e96dc5587f1f9b1ba8f63a37bbe78e18abfb1d2d",
+    "sv.dat": "83350460157f6bf168f655d6eb9ad7b53da279a9a6fb86657410e56231a419e7"
+  },
+  "rebuild_byte_identical": {
+    "merged.txt": true,
+    "excluded.txt": true,
+    "sv.rws": true,
+    "sv-baseline.rws": true,
+    "sv.dat": true,
+    "sv_phonet.dat": true,
+    "stats.json": true
+  }
+}

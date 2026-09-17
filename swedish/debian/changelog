@@ -1,0 +1,7 @@
+aspell-sv (2026.09.17~rc1-1) unstable; urgency=medium
+
+  * Package the Swedish dictionary conversion preview.
+  * Generate native dictionary hashes at installation time.
+  * Disable free compounds and test all exported word forms.
+
+ -- Daniel Nylander <github@danielnylander.se>  Thu, 17 Sep 2026 12:00:00 +0000

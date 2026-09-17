@@ -1,3 +1,16 @@
+# Swedish dictionary development fork of GNU Aspell
+
+This fork preserves GNU Aspell and adds our Swedish dictionary work in
+[`swedish/`](swedish/README.md). The engine code is unchanged by this contribution.
+
+The Swedish dictionary is a **preview**, with reproducible conversion tools,
+local tests, Debian packaging and an RPM spec. Free compound joining is disabled
+because it accepted known misspellings. Correct unseen compounds may be rejected.
+
+Upstream review: https://github.com/GNUAspell/aspell/issues/692
+
+---
+
 This is the Git repository for GNU Aspell.
 
 http://aspell.net

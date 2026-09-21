@@ -39586,6 +39586,7 @@ adresskalendrar
 adresskalendrarna
 adresskalendrarnas
 adresskalendrars
+adresskanning
 adresslapp
 adresslappar
 adresslapparna
@@ -39634,7 +39635,6 @@ adressrymds
 adressrymdsbegränsning
 adressrymdskvalificerare
 adressrymdspekare
-adressskanning
 adressspårningsinställningar
 adresstyrning
 adressuppslagning
@@ -84089,6 +84089,7 @@ barnbiljetts
 barnbok
 barnboken
 barnbokens
+barnbokhandel
 barnboks
 barnboksförfattare
 barnboksförfattaren
@@ -84096,6 +84097,7 @@ barnboksförfattarens
 barnboksförfattares
 barnboksförfattarna
 barnboksförfattarnas
+barnbokshandel
 barnby
 barnbyar
 barnbyarna
@@ -113415,6 +113417,7 @@ bollhållarens
 bollhållares
 bollhållarna
 bollhållarnas
+bolliknande
 bollinnehav
 bollinnehavet
 bollinnehavets
@@ -113456,7 +113459,6 @@ bollkänsla
 bollkänslan
 bollkänslans
 bollkänslas
-bollliknande
 bollmattvävare
 bollmåra
 bollmåror
@@ -125850,6 +125852,7 @@ brännsårens
 brännsåret
 brännsårets
 brännsårs
+bränntemperatur
 bränntjälen
 bränntjärn
 bränntjärnarna
@@ -187882,8 +187885,11 @@ enspaltig
 enspaltiga
 enspaltigt
 enspann
-enspannnet
-enspannnets
+enspannen
+enspannens
+enspannet
+enspannets
+enspanns
 enspelare
 enspelarläge
 enspelarlägen
@@ -203058,6 +203064,7 @@ femhundratal
 femhundratalet
 femhundratalets
 femhundratals
+femhundraårsjubileum
 femhundring
 femhundringar
 femhundringarna
@@ -213325,6 +213332,7 @@ fjärrenhetens
 fjärrenheter
 fjärrens
 fjärresurs
+fjärresursen
 fjärrfart
 fjärrfel
 fjärrfelsökaren
@@ -213458,7 +213466,6 @@ fjärrprogram
 fjärrprotokoll
 fjärrprotokollet
 fjärrpunkt
-fjärrresursen
 fjärrsajten
 fjärrseriell
 fjärrserver
@@ -223675,14 +223682,6 @@ formatsträngar
 formatsträngarna
 formatsträngen
 formatsträngsargumentet
-formattera
-formatterad
-formatterade
-formatterades
-formatterar
-formatterare
-formatterat
-formatterats
 formatting
 formattyp
 formatutmatning
@@ -269096,7 +269095,6 @@ gemensammas
 gemensammast
 gemensammaste
 gemensamme
-gemensammma
 gemensamt
 gemenskap
 gemenskapen
@@ -359597,7 +359595,7 @@ internminnens
 internminnes
 internminnet
 internminnets
-internnummmer
+internnummer
 internordisk
 internordiska
 internordiske
@@ -453125,6 +453123,7 @@ lastbilssläpens
 lastbilssläpet
 lastbilssläpets
 lastbilssläps
+lastbilsstöld
 lastbilstillverkare
 lastbilstillverkaren
 lastbilstillverkarens
@@ -488710,6 +488709,7 @@ malldokuments
 malleehöna
 mallen
 mallens
+malleverantören
 mallfunktion
 mallgroda
 mallgrodan
@@ -488732,7 +488732,6 @@ mallighets
 malligt
 mallinställningarna
 mallkategorierna
-mallleverantören
 mallmallargument
 mallnivå
 mallocera
@@ -601989,6 +601988,7 @@ pizzaost
 pizzaosten
 pizzaostens
 pizzaosts
+pizzarecept
 pizzas
 pizzasallad
 pizzasalladen
@@ -703963,7 +703963,6 @@ skattskyldighets
 skattskyldigs
 skattskyldigt
 skattskär
-skatttefria
 skattån
 skatungar
 skatungarna
@@ -867086,6 +867085,7 @@ usanserna
 usansernas
 usansers
 usb
+usb-minne
 usch
 uschiamej
 uschlig
@@ -885125,6 +885125,7 @@ vattenkraftsanläggningars
 vattenkraftsanläggningen
 vattenkraftsanläggningens
 vattenkraftsanläggnings
+vattenkraftsproduktion
 vattenkraftsutbyggnad
 vattenkraftsutbyggnaden
 vattenkraftsutbyggnadens
@@ -894337,6 +894338,7 @@ vindkraftsel
 vindkraftselen
 vindkraftselens
 vindkraftsels
+vindkraftspark
 vindkraftssatsning
 vindkraftssatsningar
 vindkraftssatsningarna

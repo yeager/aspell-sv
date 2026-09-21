@@ -3,12 +3,12 @@
 
 Name:           aspell-sv
 Epoch:          50
-Version:        2026.09.17
-Release:        0.1.rc1%{?dist}
+Version:        2026.09.21
+Release:        0.2.rc2%{?dist}
 Summary:        Swedish dictionary preview for GNU Aspell
 License:        GPL-2.0-or-later AND LGPL-2.1-only AND LGPL-3.0-only
 URL:            https://github.com/yeager/aspell-sv
-Source0:        %{url}/releases/download/sv-v%{version}-rc1/aspell-sv-%{version}.tar.gz
+Source0:        %{url}/releases/download/sv-v%{version}-rc2/aspell-sv-%{version}.tar.gz
 BuildRequires:  aspell
 BuildRequires:  aspell-devel
 BuildRequires:  python3
@@ -41,6 +41,9 @@ make check
 %{_libdir}/aspell-0.60/sv_phonet.dat
 
 %changelog
+* Mon Sep 21 2026 Daniel Nylander <github@danielnylander.se> - 50:2026.09.21-0.2.rc2
+- Correct reviewed modern and legacy spellings and extend whole-word tests
+
 * Thu Sep 17 2026 Daniel Nylander <github@danielnylander.se> - 50:2026.09.17-0.1.rc1
 - Package the Swedish dictionary conversion preview
 - Validate every compiled word form and compound spelling regressions

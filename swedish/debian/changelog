@@ -1,3 +1,11 @@
+aspell-sv (2026.09.21~rc2-1) unstable; urgency=medium
+
+  * Apply reviewed corrections to the legacy and Hunspell word sources.
+  * Extend compound vocabulary and test complete words through libaspell.
+  * Refresh the pinned Hunspell revision and conversion evidence.
+
+ -- Daniel Nylander <github@danielnylander.se>  Mon, 21 Sep 2026 12:00:00 +0000
+
 aspell-sv (2026.09.17~rc1-1) unstable; urgency=medium
 
   * Package the Swedish dictionary conversion preview.

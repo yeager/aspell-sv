@@ -15,6 +15,8 @@
     "användarinställningar",
     "api-nyckel",
     "applikationsserver",
+    "dammoln",
+    "dammolnen",
     "databashantering",
     "datalager",
     "diskussionsgrupp",
@@ -22,13 +24,23 @@
     "filnamnsändelse",
     "filsystemsmetadata",
     "funktionalitet",
+    "glass-skål",
+    "glass-strut",
+    "glasstrut",
     "gränssnittskomponent",
     "informationsteknik",
+    "jobb-bevakning",
+    "jobbevakning",
     "katt",
     "katten",
     "katter",
     "katterna",
     "katternas",
+    "miss-sköta",
+    "missköta",
+    "natt-tåg",
+    "nattåg",
+    "nattågen",
     "programspråk",
     "serverautentiseringstyp",
     "spionprogram",
@@ -37,16 +49,33 @@
     "springer",
     "sprungit",
     "systemd",
-    "webbapplikation"
+    "till-låta",
+    "tillåta",
+    "tillåter",
+    "topp-position",
+    "topposition",
+    "toppositioner",
+    "webbapplikation",
+    "ägg-gula",
+    "äggula",
+    "äggulor"
   ],
   "negative_words": [
     "bilbil",
+    "dammmoln",
     "datordator",
     "falllucka",
+    "glassstrut",
+    "jobbbevakning",
+    "misssköta",
+    "natttåg",
     "smörgåss",
     "stavvningskontroll",
     "säkerhett",
+    "tilllåta",
+    "toppposition",
     "zzqxxzz",
+    "ägggula",
     "översätning"
   ],
   "checks": {
@@ -61,20 +90,11 @@
       "stderr": ""
     }
   },
-  "compiled_forms_verified": 943330,
-  "affix_rule_counts": "both affix files match their headers",
+  "compiled_forms_verified": 943338,
   "sha256": {
-    "merged.txt": "8fd8c246ae37a16bc10a22e6128f87a68440b6c653a70b7fc6f8eac747c0c6d0",
-    "sv.rws": "c4d52d8e45e9cb887d27b372e96dc5587f1f9b1ba8f63a37bbe78e18abfb1d2d",
-    "sv.dat": "83350460157f6bf168f655d6eb9ad7b53da279a9a6fb86657410e56231a419e7"
+    "sv.wl": "d9ef27779b0433eaecc332c81b9779e7ef7659d7cf350a2bf76b27c480d43902",
+    "sv.rws": "e5d883bdcf205ae5e3cb09a4c55a23557317e6fb8ff6e24935f722d3ad77d8c5",
+    "sv.dat": "dc416ad0d6c0401d425aac9e07de6bcb6b1b773d95893c961c2cd726d8dd60a1"
   },
-  "rebuild_byte_identical": {
-    "merged.txt": true,
-    "excluded.txt": true,
-    "sv.rws": true,
-    "sv-baseline.rws": true,
-    "sv.dat": true,
-    "sv_phonet.dat": true,
-    "stats.json": true
-  }
+  "note": "Local source build; no new release packages built for this change."
 }

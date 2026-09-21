@@ -275943,6 +275943,8 @@ glasröret
 glasrörets
 glasrörs
 glass
+glass-skål
+glass-strut
 glassa
 glassade
 glassande
@@ -368226,6 +368228,7 @@ jning
 jo
 joan
 jobb
+jobb-bevakning
 jobba
 jobbade
 jobbades
@@ -368313,6 +368316,7 @@ jobberis
 jobbeskrivning
 jobbet
 jobbets
+jobbevakning
 jobbfika
 jobbfikas
 jobbfikat
@@ -511588,6 +511592,7 @@ mispelarna
 mispelarnas
 mispelars
 miss
+miss-sköta
 missa
 missad
 missade
@@ -538393,6 +538398,7 @@ natronsjön
 natserat
 natsjön
 natt
+natt-tåg
 natta
 nattad
 nattade
@@ -813134,6 +813140,7 @@ tiljors
 tilkråka
 tilkört
 till
+till-låta
 tillaberi
 tillade
 tillades
@@ -814345,7 +814352,6 @@ tillkännagivit
 tillkännagivits
 tillkännagivna
 tillköp
-tilllåta
 tillmakning
 tillmatning
 tillmatningen
@@ -824312,6 +824318,7 @@ topologiska
 topologiskt
 topologiupprensning
 topp
+topp-position
 toppa
 toppad
 toppade
@@ -920273,6 +920280,7 @@ zürichsjön
 ägersgölen
 äges
 ägg
+ägg-gula
 äggakaga
 äggakaka
 äggalaxen

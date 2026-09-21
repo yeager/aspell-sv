@@ -1,7 +1,7 @@
 # Svensk Aspell – lokal konverteringsprototyp
 
 Hunspell-ordlistan kan användas för att utöka Aspells svenska ordbok.
-Den här prototypen innehåller **943 330 ordformer**, varav **823 749** saknas
+Den här prototypen innehåller **943 338 ordformer**, varav **823 757** saknas
 som explicita poster i Aspell-paketet från 2004. Det är antal ordformer,
 inte antal grundord eller ett mått på språklig kvalitet.
 
@@ -9,7 +9,7 @@ inte antal grundord eller ett mått på språklig kvalitet.
 
 - Aspell: https://ftp.gnu.org/gnu/aspell/dict/sv/aspell-sv-0.51-0.tar.bz2
 - Hunspell: https://github.com/yeager/hunspell-sv
-- Hunspell-källrevision: `167ef93ff69812279701979e01bdc70675a859a1`.
+- Hunspell-källrevision: `e7e8828fa986aaf16a69f47d8b5a4450c29b8883`.
 - Aspell 0.60.8.2 och systemets libhunspell 1.7 användes lokalt.
 
 `convert.py` läser huvudordlistan och genererar dess enkla suffixformer.
@@ -42,7 +42,7 @@ printf '%s\n' meddelandekö symlänk filbläddrare Kubernetes stavvningskontroll
 
 Endast `stavvningskontroll` ska skrivas ut. För jämförelse kan du använda
 `--master=sv-baseline.rws`. Originalet känner inte igen de fyra första
-orden i detta test. `verification.json` redovisar 38 korrekta ord och åtta
+orden i detta test. `verification.json` redovisar 59 korrekta ord och 16
 felstavningar, samt en exakt jämförelse av alla kompilerade ordformer med exporten.
 Kör `python3 validate.py /path/to/hunspell-sv` för att upprepa valideringen.
 

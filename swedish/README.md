@@ -73,12 +73,25 @@ https://frageladan.isof.se/faqs/30528. The rule concerns consonants, not vowels.
 
 ## Reviewed Swedish rules
 
+Språkrådet (Isof) is the primary authority for language and writing rules.
+Follow the [language policy](docs/sprakpolicy.md) and
+[reviewed catalogue](docs/svenska-regler.md). SAOL supplies individual spelling
+and inflection evidence in accordance with Språkrådet's guidance. The numerical
+style advice is contextual; there is no automatic cutoff at nine, ten or twelve.
+
 The conversion applies the 17 entries in lexical-corrections.json to both
 source lists, removing nine misspellings from the legacy input. These are
 reviewed word-level corrections, not a general character replacement rule.
-The source catalogue covers 35 linguistic and writing-rule topics:
-https://github.com/yeager/hunspell-sv/blob/6cd0c2d1796f97ac260011a9859ce89926f20eb8/docs/svenska-regler.md
+The converter validates their evidence against the bundled rule catalogue
+before applying exclusions, including when reproducing the historical lexical
+source pin. `make check` validates the catalogue, corrections and context/word
+boundary offline. These checks do not replace review of the source wording.
+
+The rule catalogue, language policy, examples and policy validator are copied
+from [hunspell-sv at 3d33b05](https://github.com/yeager/hunspell-sv/tree/3d33b05d6c833da3c6f26c0bb33550250ac9c7ee);
+the lexical source pin above remains unchanged.
 
 Package checks use libaspell directly for 201 accepted and 49 rejected whole
-words and compare every compiled form with sv.wl. Grammar and style examples
-are documented separately; word acceptance does not validate a sentence.
+words, the 187 sourced word cases, and compare every compiled form with sv.wl.
+Grammar and style examples are documented separately; word acceptance does
+not validate a sentence.

@@ -4,7 +4,15 @@ Usage: python3 convert.py HUNSPELL_SOURCE ASPELL_SOURCE OUTPUT_DIRECTORY
 Requires aspell, word-list-compress and libhunspell 1.7.
 """
 import collections, ctypes, ctypes.util, json, pathlib, re, shutil, subprocess, sys
+from check_language_policy import validate
+
 hun, old, out = map(lambda s: pathlib.Path(s).resolve(), sys.argv[1:])
+package = pathlib.Path(__file__).resolve().parents[1]
+catalogue = json.loads((package/'docs/swedish-rules.json').read_text())
+corrections = json.loads((hun/'lexical-corrections.json').read_text())['corrections']
+# Validate source evidence before creating output or applying spelling exclusions.
+# Use the bundled, reviewed catalogue so the historical source pin still works.
+validate(catalogue, corrections)
 out.mkdir(parents=True, exist_ok=True)
 aff = hun.joinpath('sv_SE.aff').read_text()
 rules = collections.defaultdict(list)
@@ -29,12 +37,7 @@ lib.Hunspell_spell.restype = ctypes.c_int
 lib.Hunspell_destroy.argtypes = [ctypes.c_void_p]
 handle = lib.Hunspell_create(str(hun/'sv_SE.aff').encode(), str(hun/'sv_SE.dic').encode())
 assert handle
-corrections = json.loads((hun/'lexical-corrections.json').read_text())['corrections']
 reviewed_forbidden = {entry['word'] for entry in corrections}
-if len(reviewed_forbidden) != len(corrections):
-    raise ValueError('Duplicate reviewed correction')
-if reviewed_forbidden & {entry['replacement'] for entry in corrections}:
-    raise ValueError('A reviewed replacement is also forbidden')
 candidates, forbidden = set(), set(reviewed_forbidden)
 rows = (hun/'sv_SE.dic').read_text().splitlines()
 assert int(rows[0]) == len(rows)-1

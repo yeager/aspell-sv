@@ -9,6 +9,7 @@ all: sv.rws
 sv.rws: sv.wl sv.dat sv_phonet.dat
 	$(ASPELL) --lang=sv --encoding=utf-8 --local-data-dir=$(CURDIR) --dict-dir=$(CURDIR) create master $@ < sv.wl
 check: all
+	python3 -m unittest discover -s tests -p 'test_*.py' -v
 	python3 tests/check_dictionary.py --local .
 install: all
 	install -d $(DESTDIR)$(dictdir) $(DESTDIR)$(datadir)

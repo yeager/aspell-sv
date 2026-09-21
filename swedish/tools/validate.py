@@ -7,10 +7,11 @@ import subprocess
 import sys
 
 hun = Path(sys.argv[1]).resolve()
-package = Path(sys.argv[2]).resolve() if len(sys.argv) > 2 else Path(__file__).resolve().parent
-base = ['aspell', '--lang=sv', '--encoding=utf-8', '--local-data-dir='+str(package), '--dict-dir='+str(package), '--master=sv.rws']
-positive = set((hun/'test-words.txt').read_text().split()) | {'katt', 'katten', 'katter', 'katterna', 'katternas', 'springa', 'springer', 'sprang', 'sprungit', 'fallucka'}
-negative = {'bilbil', 'datordator', 'falllucka', 'smörgåss', 'säkerhett', 'översätning', 'zzqxxzz', 'stavvningskontroll'}
+root = Path(__file__).resolve().parents[1]
+package = Path(sys.argv[2]).resolve() if len(sys.argv) > 2 else root
+base = ['aspell', '--lang=sv', '--encoding=utf-8', '--conf=/dev/null', '--per-conf=/dev/null', '--personal=/dev/null', '--local-data-dir='+str(package), '--dict-dir='+str(package), '--master=sv.rws']
+vocabulary = json.loads((root/'tests/vocabulary.json').read_text())
+positive, negative = set(vocabulary['positive']), set(vocabulary['negative'])
 report = {'positive_words':sorted(positive), 'negative_words':sorted(negative), 'checks':{}}
 for name, command in [('hunspell', ['hunspell','-i','UTF-8','-d',str(hun/'sv_SE'),'-p','/dev/null','-l']), ('aspell',base+['list'])]:
     result = subprocess.run(command, input='\n'.join(sorted(positive|negative))+'\n', text=True, capture_output=True, check=True)
@@ -21,7 +22,8 @@ for name, command in [('hunspell', ['hunspell','-i','UTF-8','-d',str(hun/'sv_SE'
     assert not (rejected & positive), report['checks'][name]
 # Check every compiled spelling, not just the count.
 dump = subprocess.run(base+['dump','master'], text=True, capture_output=True, check=True)
-expected = set((package/'merged.txt').read_text().splitlines())
+word_file = 'sv.wl' if (package/'sv.wl').exists() else 'merged.txt'
+expected = set((package/word_file).read_text().splitlines())
 actual = set(dump.stdout.splitlines())
 assert actual == expected
 report['compiled_forms_verified'] = len(actual)
@@ -39,7 +41,7 @@ for path in hun.glob('*.aff'):
                 counts[key] = counts.get(key,0)+1
     assert headers == counts, (path.name,headers,counts)
 report['affix_rule_counts'] = 'both affix files match their headers'
-report['sha256'] = {name:hashlib.sha256((package/name).read_bytes()).hexdigest() for name in ['merged.txt','sv.rws','sv.dat']}
+report['sha256'] = {name:hashlib.sha256((package/name).read_bytes()).hexdigest() for name in [word_file,'sv.rws','sv.dat']}
 (package/'verification.json').write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n')
 print(json.dumps(report['checks'],ensure_ascii=False,indent=2))
 print('Compiled forms verified:',len(actual))

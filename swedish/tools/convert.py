@@ -29,7 +29,13 @@ lib.Hunspell_spell.restype = ctypes.c_int
 lib.Hunspell_destroy.argtypes = [ctypes.c_void_p]
 handle = lib.Hunspell_create(str(hun/'sv_SE.aff').encode(), str(hun/'sv_SE.dic').encode())
 assert handle
-candidates, forbidden = set(), set()
+corrections = json.loads((hun/'lexical-corrections.json').read_text())['corrections']
+reviewed_forbidden = {entry['word'] for entry in corrections}
+if len(reviewed_forbidden) != len(corrections):
+    raise ValueError('Duplicate reviewed correction')
+if reviewed_forbidden & {entry['replacement'] for entry in corrections}:
+    raise ValueError('A reviewed replacement is also forbidden')
+candidates, forbidden = set(), set(reviewed_forbidden)
 rows = (hun/'sv_SE.dic').read_text().splitlines()
 assert int(rows[0]) == len(rows)-1
 for line in rows[1:]:
@@ -92,6 +98,6 @@ for name, words in [('sv', usable), ('sv-baseline', baseline)]:
     if set(dumped.stdout.splitlines()) != set(words):
         raise RuntimeError('Compiled dictionary differs from exported words: ' + name)
 (out/'sv.multi').write_text('add sv.rws\n')
-stats = {'hunspell_commit': subprocess.check_output(['git', '-C', str(hun), 'rev-parse', 'HEAD'], text=True).strip(), 'hunspell_entries':len(rows)-1,'aspell_original_forms':len(baseline),'hunspell_generated_candidates':len(candidates),'hunspell_validated_forms':len(accepted),'merged_exported_forms':len(usable),'new_vs_original':len(usable-baseline),'excluded_forms':len(excluded),'original_forms_excluded':len(baseline-usable)}
+stats = {'hunspell_commit': subprocess.check_output(['git', '-C', str(hun), 'rev-parse', 'HEAD'], text=True).strip(), 'hunspell_entries':len(rows)-1,'aspell_original_forms':len(baseline),'hunspell_generated_candidates':len(candidates),'hunspell_validated_forms':len(accepted),'merged_exported_forms':len(usable),'new_vs_original':len(usable-baseline),'excluded_forms':len(excluded),'original_forms_excluded':len(baseline-usable),'reviewed_corrections':len(reviewed_forbidden),'reviewed_legacy_forms_excluded':len(baseline & reviewed_forbidden)}
 (out/'stats.json').write_text(json.dumps(stats, indent=2)+'\n')
 print(json.dumps(stats, indent=2))

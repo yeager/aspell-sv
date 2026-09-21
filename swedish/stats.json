@@ -1,11 +1,13 @@
 {
-  "hunspell_commit": "167ef93ff69812279701979e01bdc70675a859a1",
-  "hunspell_entries": 279122,
+  "hunspell_commit": "6cd0c2d1796f97ac260011a9859ce89926f20eb8",
+  "hunspell_entries": 279128,
   "aspell_original_forms": 119591,
-  "hunspell_generated_candidates": 941573,
-  "hunspell_validated_forms": 941563,
-  "merged_exported_forms": 943330,
-  "new_vs_original": 823749,
+  "hunspell_generated_candidates": 941591,
+  "hunspell_validated_forms": 941581,
+  "merged_exported_forms": 943340,
+  "new_vs_original": 823768,
   "excluded_forms": 4379,
-  "original_forms_excluded": 10
+  "original_forms_excluded": 19,
+  "reviewed_corrections": 17,
+  "reviewed_legacy_forms_excluded": 9
 }

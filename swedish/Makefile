@@ -17,3 +17,4 @@ install: all
 	install -m 644 sv.dat sv_phonet.dat $(DESTDIR)$(datadir)/
 clean:
 	rm -f sv.rws sv.cwl.gz
+	rm -rf tests/__pycache__ tools/__pycache__

@@ -1,6 +1,6 @@
 # Changes
 
-## Unreleased
+## 2026.09.21-rc3
 
 - Adopt Språkrådet as the primary authority for language and writing rules.
 - Bundle the reviewed rule catalogue and validate source evidence before
@@ -8,6 +8,7 @@
 - Add policy regressions and the sourced word cases to `make check`.
 - Use contextual numeric style advice without a fixed digit cutoff.
   Lexical contents and their original source pins are unchanged.
+- Ship the language policy and rule catalogue in Debian and RPM packages.
 
 ## 2026.09.21-rc2
 

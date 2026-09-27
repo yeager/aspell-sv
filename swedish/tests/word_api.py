@@ -1,6 +1,18 @@
 """Direct libaspell word checking, isolated from personal dictionaries."""
 import ctypes as C
 import ctypes.util
+from pathlib import Path
+
+
+def aspell_library():
+    library = ctypes.util.find_library('aspell')
+    if library:
+        return library
+    for path in ('/opt/homebrew/lib/libaspell.dylib',
+                 '/usr/local/lib/libaspell.dylib'):
+        if Path(path).is_file():
+            return path
+    return None
 
 def bind(lib, name, args, result):
     function = getattr(lib, name)
@@ -10,7 +22,7 @@ def bind(lib, name, args, result):
 
 class Aspell:
     def __init__(self, root, home):
-        library = ctypes.util.find_library('aspell')
+        library = aspell_library()
         if not library:
             raise RuntimeError('libaspell not found')
         self.lib = C.CDLL(library)

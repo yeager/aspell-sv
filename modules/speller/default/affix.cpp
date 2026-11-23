@@ -68,7 +68,7 @@ static char EMPTY[1] = {0};
 
 //////////////////////////////////////////////////////////////////////
 //
-// Entry struct definations
+// Entry struct definitions
 //
 
 struct Conds
@@ -222,6 +222,7 @@ static int normalize_cond_str(char * str)
         if (*s == '\0' || *s == '[') return -1;
         char * min = s;
         for (char * i = s + 1; *i != ']'; ++i) {
+          if (*i == '\0') return -1;
           if ((byte)*i < (byte)*min) min = i;}
         char c = *s;
         *d++ = *min;
@@ -371,6 +372,10 @@ PosibErr<void> AffixMgr::parse_file(const char * affpath, Conv & iconv)
         // key is strip 
         if (dp.key != "0") {
           ParmString s0(iconv(dp.key));
+          // stripl is a byte, so a longer strip would be truncated while
+          // nptr->strip keeps the full string; the two then disagree and
+          // PfxEntry/SfxEntry::check overflow their tmpword buffer.
+          if (s0.size() > MAXWORDLEN) goto error;
           max_(max_strip_, s0.size());
           max_(max_strip_f[(byte)achar], s0.size());
           nptr->strip = data_buf.dup(s0);
@@ -385,7 +390,10 @@ PosibErr<void> AffixMgr::parse_file(const char * affpath, Conv & iconv)
         // key is affix string or 0 for null
         if (dp.key != "0") {
           nptr->appnd  = data_buf.dup(iconv(dp.key));
-          nptr->appndl = strlen(nptr->appnd);
+          size_t appndl = strlen(nptr->appnd);
+          // appndl is a byte; reject anything that would not fit
+          if (appndl > MAXWORDLEN) goto error;
+          nptr->appndl = appndl;
         } else {
           nptr->appnd  = "";
           nptr->appndl = 0;
@@ -695,7 +703,7 @@ static void encodeit(CondsLookup & l, ObjStack & buf,
       c = 0;
     }
 
-    // end goup indicator
+    // end group indicator
     if (c == ']') {
       ec = 1;
       c = 0;
@@ -1195,7 +1203,7 @@ SimpleString SfxEntry::add(SimpleString word, ObjStack & buf,
       if ((conds->get(*--cp) & (1 << cond)) == 0)
         break;
     }
-    if (cond < 0) {
+    if (cond < 0 && word.size > stripl) {
       int alen = word.size - stripl;
       if (alen >= limit) return EMPTY;
       /* we have a match so add suffix */
@@ -1214,7 +1222,7 @@ bool SfxEntry::check(const LookupInfo & linf, ParmString word,
                      int optflags, AffEntry* ppfx)
 {
   unsigned              tmpl;		 // length of tmpword 
-  int			cond;		 // condition beng examined
+  int			cond;		 // condition being examined
   WordEntry             wordinfo;        // hash entry pointer
   byte *	cp;
   VARARRAYM(char, tmpword, word.size()+stripl+1, MAXWORDLEN+1);
